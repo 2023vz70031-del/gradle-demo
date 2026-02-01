@@ -1,5 +1,10 @@
 pipeline {
     agent any
+    environment {
+        // Replace with the output of 'pwd' in your gradle-8.5/bin folder
+        GRADLE_HOME = '/home/cloud/gradle-demo/gradle-8.5'
+        PATH = "${env.GRADLE_HOME}/bin:${env.PATH}"
+    }
     stages {
         stage('Checkout') {
             steps {
@@ -8,14 +13,13 @@ pipeline {
         }
         stage('Build & Test') {
             steps {
-                // Use 'gradle' since it is in your Linux PATH
+                // Now Jenkins will find the 'gradle' command
                 sh 'gradle clean test' 
             }
         }
         stage('Archive Artifact') {
             steps {
-                // This archives the JAR file so it appears in the Jenkins UI
-                archiveArtifacts artifacts: 'build/libs/*.jar', fingerprint: true
+                archiveArtifacts artifacts: 'build/libs/*.jar'
             }
         }
     }
