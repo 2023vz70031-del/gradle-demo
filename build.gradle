@@ -1,6 +1,7 @@
 plugins {
     id 'java'
     id 'jacoco' 
+    id 'org.sonarqube" version "4.4.1.3373"
 }
 
 group 'com.bits'
@@ -25,5 +26,14 @@ jacocoTestReport {
     dependsOn test
     reports {
         html.required = true
+    }
+}
+
+sonar {
+    properties {
+        property "sonar.projectKey", "gradle-demo"
+        property "sonar.projectName", "gradle-demo"
+        // This line links the Task 1 JaCoCo report to SonarQube
+        property "sonar.coverage.jacoco.xmlReportPaths", "${project.buildDir}/reports/jacoco/test/jacocoTestReport.xml"
     }
 }
