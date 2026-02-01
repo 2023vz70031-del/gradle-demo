@@ -12,10 +12,11 @@ pipeline {
         }
         stage('SonarQube Analysis') {
             steps {
-                // 'SonarQube' must match your Jenkins Global Tool Config name
-                withSonarQubeEnv('SonarQube') {
-                    sh '/opt/gradle-8.5/bin/gradle sonar'
-                }
+                // Use your verified credentials: admin / cloud
+                sh '/opt/gradle-8.5/bin/gradle sonar \
+                    -Dsonar.host.url=http://localhost:9000 \
+                    -Dsonar.login=admin \
+                    -Dsonar.password=cloud'
             }
         }
         stage('Archive Artifact') {
