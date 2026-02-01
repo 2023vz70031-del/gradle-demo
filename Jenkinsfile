@@ -1,5 +1,3 @@
-pipeline {
-    agent any
     stages {
         stage('Checkout') {
             steps { checkout scm }
@@ -12,11 +10,8 @@ pipeline {
         }
         stage('SonarQube Analysis') {
             steps {
-                // Use your verified credentials: admin / cloud
-                sh '/opt/gradle-8.5/bin/gradle sonar \
-                    -Dsonar.host.url=http://localhost:9000 \
-                    -Dsonar.login=admin \
-                    -Dsonar.password=cloud'
+               sh '/opt/gradle-8.5/bin/gradle sonar \
+                   -Dsonar.login=sqp_1a15b5588c79e1d191bad741f0b2c9218597623b'
             }
         }
         stage('Archive Artifact') {
