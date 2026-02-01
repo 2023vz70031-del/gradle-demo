@@ -8,7 +8,7 @@ pipeline {
         }
         stage('Build & Test') {
             steps {
-               sh '/opt/gradle-8.5/bin/gradle clean test'
+               sh '/opt/gradle-8.5/bin/gradle clean build'
             }
         }
         stage('Archive Artifact') {
