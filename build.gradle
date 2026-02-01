@@ -34,7 +34,6 @@ sonar {
         property "sonar.projectKey", "gradle-demo"
         property "sonar.projectName", "gradle-demo"
         property "sonar.host.url", "http://localhost:9000"
-        // This line links the Task 1 JaCoCo report to SonarQube
         property "sonar.coverage.jacoco.xmlReportPaths", "${project.buildDir}/reports/jacoco/test/jacocoTestReport.xml"
     }
 }
