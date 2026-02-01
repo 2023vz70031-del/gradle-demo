@@ -26,6 +26,7 @@ jacocoTestReport {
     dependsOn test
     reports {
         html.required = true
+        xml.required = true
     }
 }
 
@@ -34,6 +35,6 @@ sonar {
         property "sonar.projectKey", "gradle-demo"
         property "sonar.projectName", "gradle-demo"
         property "sonar.host.url", "http://localhost:9000"
-        property "sonar.coverage.jacoco.xmlReportPaths", "${project.buildDir}/reports/jacoco/test/jacocoTestReport.xml"
+        property "sonar.coverage.jacoco.xmlReportPaths", "${project.buildDir}/reports/jacoco/tests/test/jacocoTestReport.xml"
     }
 }
