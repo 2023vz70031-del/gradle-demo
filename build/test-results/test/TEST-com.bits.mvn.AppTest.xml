@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.bits.mvn.AppTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2026-02-01T16:29:56" hostname="2023vz70031" time="1.35">
+  <properties/>
+  <testcase name="testGreetWithValidName()" classname="com.bits.mvn.AppTest" time="1.35"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
